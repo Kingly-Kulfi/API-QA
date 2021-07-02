@@ -16,7 +16,7 @@ module.exports = {
           count,
           results: data.rows[0].results
         };
-        res.send(result);
+        res.status(200).send(result);
       }
     });
   },

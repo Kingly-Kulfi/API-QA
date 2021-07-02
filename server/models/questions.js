@@ -3,7 +3,7 @@ const db = require('../db');
 module.exports = {
   getQuestions: (product_id, {page = 1, count = 5}, cb) => {
 
-    const queryString = `SELECT JSON_AGG(
+    const queryString = `SELECT COALESCE(JSON_AGG(
         JSON_BUILD_OBJECT(
           'question_id', q.question_id,
           'question_body', q.question_body,
@@ -29,7 +29,7 @@ module.exports = {
 
           FROM answers a WHERE a.reported = false AND a.question_id = q.question_id)
         )
-    ) AS results
+    ), '[]'::JSON) AS results
     FROM
     (SELECT * FROM questions q WHERE (product_id = ${product_id}) LIMIT ${count} OFFSET ${(page - 1) * count}) as q
     `;
