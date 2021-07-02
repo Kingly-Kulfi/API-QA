@@ -6,6 +6,13 @@ bin-release/
 
 # Other files and folders
 .settings/
+/test/options.js
+/test/getTests.js
+/test/start.js
+config.js
+Data/
+node_modules/
+package-lock.json
 
 # Executables
 *.swf
