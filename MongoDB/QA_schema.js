@@ -56,7 +56,8 @@ let answerSchema = new Schema(
     type: Boolean,
     default: false
   },
-  photos: [{ type: Schema.Types.ObjectId, ref: 'Photo' }]
+  // photos: [{ type: Schema.Types.ObjectId, ref: 'Photo' }]
+  photos: [{ id: }]
 );
 
 let photoSchema = new Schema(
@@ -72,3 +73,5 @@ let photoSchema = new Schema(
 
 
 //answerinstance.photos.push(photoinstance);
+
+//questioninstance.answers[answerinstance.answer_id] = answerinstance
